@@ -5,7 +5,6 @@ const app = container.Server;
 app
   .start()
   .catch((error) => {
-    // app.logger.error(error);
-    console.log(error);
+    app.logger.error(error);
     process.exit();
   });
