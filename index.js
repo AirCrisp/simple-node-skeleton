@@ -1,6 +1,6 @@
 const appManager = require('./src/container');
 const container = appManager();
-const app = container.Server;
+const app = container.server;
 
 app
   .start()

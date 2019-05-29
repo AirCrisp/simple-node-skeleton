@@ -3,7 +3,7 @@ const express = require('express');
 class Server {
   constructor({ config, router, logger }) {
     this.config = config;
-    this.logger = logger({ config });
+    this.logger = logger;
     this.express = express();
 
     this.express.disable('x-powered-by');

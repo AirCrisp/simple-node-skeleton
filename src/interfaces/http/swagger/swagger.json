@@ -1,0 +1,40 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Node API boilerplate",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "description": "Local server",
+      "url": "/test"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "test",
+        "responses": {
+          "200": {
+            "description": "Test message to check server working",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Test"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Test": {}
+    }
+  }
+}
