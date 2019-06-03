@@ -8,7 +8,7 @@ module.exports = ({ swaggerMiddleware }) => {
     
     router.use(bodyParser.json()).use('/docs', swaggerMiddleware);
     
-    router.use('/test', controller('test/TestController'));
+    router.use('/user', controller('user/UserController'));
 
     return router;
 };

@@ -5,15 +5,25 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "NODE_PATH=. NODE_ENV=development nodemon"
+    "dev": "NODE_PATH=. NODE_ENV=development nodemon",
+    "migrate:up": "node node_modules/db-migrate/bin/db-migrate --config ./config/database.json -m ./src/infra/database/migrations up",
+    "migrate:down": "node node_modules/db-migrate/bin/db-migrate --config ./config/database.json -m ./src/infra/database/migrations down",
+    "migrate:reset": "node node_modules/db-migrate/bin/db-migrate --config ./config/database.json -m ./src/infra/database/migrations reset",
+    "migrate:seeds:up": "node node_modules/db-migrate/bin/db-migrate --config ./config/database.json -m ./src/infra/database/seeds up",
+    "migrate:seeds:down": "node node_modules/db-migrate/bin/db-migrate --config ./config/database.json -m ./src/infra/database/seeds down",
+    "migrate:seeds:reset": "node node_modules/db-migrate/bin/db-migrate --config ./config/database.json -m ./src/infra/database/seeds reset",
+    "db-create": "node node_modules/db-migrate/bin/db-migrate --config ./config/database.json db:create pp_terminal_manager"
   },
   "author": "aircrisp",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
     "bottlejs": "^1.7.2",
+    "db-migrate": "^0.11.5",
+    "db-migrate-pg": "^0.5.1",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
+    "lodash": "^4.17.11",
     "pg-promise": "^8.7.2",
     "swagger-ui-express": "^4.0.5",
     "validate.js": "^0.12.0",

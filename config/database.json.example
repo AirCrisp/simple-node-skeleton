@@ -1,0 +1,17 @@
+{  
+  "development": {
+    "driver": "pg",
+    "username": {"ENV": "DEVELOPMENT_USERNAME"},
+    "password": {"ENV": "DEVELOPMENT_PASSWORD"},
+    "database": {"ENV": "DEVELOPMENT_DATABASE"},
+    "host": "127.0.0.1",
+    "schema": "development_schema"
+  },
+  "test": {
+    "username": {"ENV": "TEST_USERNAME"},
+    "password": {"ENV": "TEST_USERNAME"},
+    "database": {"ENV": "TEST_DATABASE"},
+    "host": "127.0.0.1",
+    "schema": "test_schema"
+  }
+}

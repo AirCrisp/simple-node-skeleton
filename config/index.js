@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const fs = require('fs');
+const _ = require('lodash');
 const path = require('path');
 
 const ENV = process.env.NODE_ENV || 'development';
@@ -17,11 +17,11 @@ const config = Object.assign({
 module.exports = config;
 
 function loadDbConfig() {
-  if(process.env.DATABASE_URL) {
-    return process.env.DATABASE_URL;
-  }
-
-  if(fs.existsSync(path.join(__dirname, './database.js'))) {
-    return require('./database')[ENV];
-  }
+  const dbJSON = require('./database.json')[ENV];
+  const dbConfig = {};
+  Object.keys(dbJSON).forEach((key) => {
+    if (_.isString(dbJSON[key])) dbConfig[key] = dbJSON[key];
+    else dbConfig[key] = process.env[dbJSON[key].ENV];
+  });
+  return dbConfig;
 }
